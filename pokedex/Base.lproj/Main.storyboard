@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Pokemon.ttf">
+            <string>PokemonSolidNormal</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -23,10 +28,47 @@
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-vB-b5k">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zP3-IX-aQo">
+                                        <rect key="frame" x="216" y="13" width="169" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="49" id="5PD-b6-Ebn"/>
+                                            <constraint firstAttribute="width" constant="169" id="WrK-bp-Uqi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="37"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tiu-PT-vzP">
+                                        <rect key="frame" x="551" y="23" width="41" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="41" id="5Lu-VR-MTG"/>
+                                            <constraint firstAttribute="height" constant="30" id="qMJ-1l-cUQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Music">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="musicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oYf-vT-JNq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.03079350443" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="18Z-LC-lUo"/>
+                                    <constraint firstItem="Tiu-PT-vzP" firstAttribute="top" secondItem="Hdn-vB-b5k" secondAttribute="top" constant="32" id="3nd-C9-goB"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tiu-PT-vzP" secondAttribute="trailing" constant="10" id="kDc-YH-rgj"/>
+                                    <constraint firstItem="Tiu-PT-vzP" firstAttribute="top" secondItem="Hdn-vB-b5k" secondAttribute="top" constant="23" id="kJe-fP-wWd"/>
+                                    <constraint firstItem="zP3-IX-aQo" firstAttribute="centerX" secondItem="Hdn-vB-b5k" secondAttribute="centerX" id="t2l-ve-tkV"/>
+                                    <constraint firstItem="zP3-IX-aQo" firstAttribute="centerY" secondItem="Hdn-vB-b5k" secondAttribute="centerY" id="wOl-3t-WvK"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tiu-PT-vzP" secondAttribute="trailing" constant="8" id="yih-2S-hQo"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3nd-C9-goB"/>
+                                        <exclude reference="kDc-YH-rgj"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VJo-di-X20">
                                 <rect key="frame" x="20" y="119" width="560" height="461"/>
@@ -78,7 +120,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="wpJ-6r-EhA">
+                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" text="" placeholder="Search for Pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="wpJ-6r-EhA">
                                 <rect key="frame" x="0.0" y="75" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -109,6 +151,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="VJo-di-X20" id="nPQ-UI-u1V"/>
+                        <outlet property="searchBar" destination="wpJ-6r-EhA" id="9v6-NI-NCF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
